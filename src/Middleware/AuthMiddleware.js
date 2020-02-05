@@ -9,11 +9,11 @@ const AuthMiddleware = (req, res, next) =>
             return response.data.access_token;
         })
         .then(async(token) => {
-            await TokenStorage.write(token);
-            console.log(TokenStorage.read());
+            TokenStorage.write(token);
         })
         .catch((err) => {
-            console.log(err.response);
+            console.log('Error:');
+            console.log(err);
         });
 
     next();
@@ -28,7 +28,6 @@ const fetchToken = async () =>
             method: 'POST',
             url: config.auth.authUri,
             headers: {
-                //'Authorization': authHeader,
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Accept': 'application/json',
             },
