@@ -2,7 +2,7 @@ const path = require('path');
 
 const AlbumCoverHandler = (req, res) =>
 {
-    return res.sendFile(path.join(__dirname + '../../../public/album-cover.html'));
+    return res.sendFile(path.join(__dirname + '../../../public/search.html'));
 };
 
 module.exports = AlbumCoverHandler;

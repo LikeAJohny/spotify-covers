@@ -5,7 +5,7 @@ const NotFoundHandler = require('../src/Handler/NotFoundHandler.js');
 const HomePageHandler = require('../src/Handler/HomePageHandler.js');
 const AuthMiddleware = require('../src/Middleware/AuthMiddleware.js');
 const AlbumCoverHandler = require('../src/Handler/AlbumCoverHandler.js');
-const SearchAlbumsMiddleware = require('../src/Middleware/SearchAlbumsMiddleware.js');
+const SearchMiddleware = require('../src/Middleware/SearchMiddleware.js');
 
 // Authentication
 router.use('/', AuthMiddleware);
@@ -20,9 +20,9 @@ router.use(BodyParserMiddleware.json());
  */
 router.get('/', HomePageHandler);
 
-// AlbumCover
-router.get('/album-cover', AlbumCoverHandler);
-router.post('/album-cover', [/*SearchAlbumsMiddleware, */AlbumCoverHandler]);
+// General Spotify Search
+router.get('/search', AlbumCoverHandler);
+router.post('/search', [SearchMiddleware, AlbumCoverHandler]);
 
 router.use(NotFoundHandler);
 

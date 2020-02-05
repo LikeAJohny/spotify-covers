@@ -2,9 +2,10 @@ const FetchAlbum = require('../Service/FetchAlbum.js');
 
 const SearchAlbumsMiddleware = (req, res, next) => 
 {
-    const albumId = req.body.albumId;
+    const searchTerm = req.body;
+    console.log(searchTerm);
 
-    console.log(FetchAlbum(albumId));
+    //console.log(FetchAlbum(albumId));
 
     next();
 };
