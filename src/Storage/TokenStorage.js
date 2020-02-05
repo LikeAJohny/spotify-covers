@@ -3,23 +3,30 @@ const config = require('../../config/config.js');
 
 const write = (token) =>
 {
-    const tokenValue = {
-        accessToken: token
-    };
-
-    fs.writeFile(
+    fs.writeFileSync(
         config.auth.tokenStore,
-        JSON.stringify(tokenValue),
+        JSON.stringify(token),
         onWrite
     );
 };
 
 const read = () =>
 {
-    return JSON.parse(fs.readFile(config.auth.tokenStore));
+    return JSON.parse(fs.readFileSync(config.auth.tokenStore));
 };
 
-module.exports = { write, read };
+const isAlive = () =>
+{
+    const token = read(),
+        expiryDate = new Date(token.expiresAt),
+        nowDate = new Date();
+
+    if (expiryDate > nowDate) return true;
+
+    return false;
+};
+
+module.exports = { write, read, isAlive };
 
 const onWrite = (error) =>
 {
