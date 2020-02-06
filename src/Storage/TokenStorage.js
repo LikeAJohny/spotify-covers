@@ -1,5 +1,5 @@
 const fs = require('fs');
-const config = require('../../config/config.js');
+const config = require('../../config/config.local.js');
 
 const write = (token) =>
 {

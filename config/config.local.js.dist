@@ -1,0 +1,15 @@
+const express = require('express');
+const path = require('path');
+
+const config = {
+    staticFiles: express.static(''),
+    auth: {
+        clientId: '',
+        clientSecret: '',
+        authUri: '',
+        grantType: '',
+        tokenStore: '',
+    }
+};
+
+module.exports = config;
