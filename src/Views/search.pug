@@ -4,9 +4,13 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Search Spotify
+        link(rel="stylesheet", href="/dist/css/boilerplate.css")
+        link(rel="stylesheet", href="/dist/css/styles.css")
 
     body
-        h1 Search Spotify
+        header(id="header")
+            a(id="branding", href="/search") Search Spotify
+
         form(action="/search", method="POST")
             label(for="searchTerm")= "Search Term"
             br
