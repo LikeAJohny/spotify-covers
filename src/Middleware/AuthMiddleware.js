@@ -3,7 +3,7 @@ const TokenStorage = require('../Storage/TokenStorage.js');
 
 const AuthMiddleware = (req, res, next) => 
 {
-    if (TokenStorage.read() && TokenStorage.isAlive()) next();
+    if (TokenStorage.read() && TokenStorage.isAlive()) return next();
 
     FetchToken()
         .then(async(token) => {
