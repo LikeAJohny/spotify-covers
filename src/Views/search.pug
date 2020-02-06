@@ -8,13 +8,13 @@ html(lang="en")
         link(rel="stylesheet", href="/dist/css/styles.css")
 
     body
-        header(id="header")
-            a(id="branding", href="/search") Search Spotify
+        header#header
+            a#branding(href="/search") Search Spotify
 
         form(action="/search", method="POST")
             label(for="searchTerm")= "Search Term"
             br
-            input(type="text", id="searchTerm", name="searchTerm", value=`${searchTerm}`)
+            input#searchTerm(type="text", name="searchTerm", value=`${searchTerm}`)
 
         #artists
             h2 Artists
