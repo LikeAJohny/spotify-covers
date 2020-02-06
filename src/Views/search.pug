@@ -9,37 +9,41 @@ html(lang="en")
 
     body
         header#header
-            a#branding(href="/search") Search Spotify
+            #branding
+                span Search Spotify
+        #headerSpacer
 
-        form(action="/search", method="POST")
-            label(for="searchTerm")= "Search Term"
-            br
-            input#searchTerm(type="text", name="searchTerm", value=`${searchTerm}`)
+        main#content
 
-        #artists
-            h2 Artists
-            ul
-                each artist in artists
-                    li= artist.name
-                    a(href=`${artist.external_urls.spotify}`)
-                        img(src=`${artist.images[0].url}`, alt="Artist Image")
-                else
-                    li No Artist found
-            
-        #albums
-            h2 Albums
-            ul
-                each album in albums
-                    li= album.name
-                    a(href=`${album.external_urls.spotify}`)
-                        img(src=`${album.images[0].url}`, alt="Artist Image")
-                else
-                    li No Album found
+            form#search(action="/search", method="POST")
+                input#searchTerm(type="text", name="searchTerm", value=`${searchTerm}`)
+                input#submitSearch(type="submit" value="Search")
 
-        #tracks
-            h2 Tracks
-            ul
-                each track in tracks
-                    li= track.name
-                else
-                    li No Track found
+            #artists
+                h2 Artists
+                ul
+                    each artist in artists
+                        li
+                            span
+                                a(href=`${artist.external_urls.spotify}`)
+                                    img(src=`${artist.images[0].url}`, alt="Artist Image")
+                    else
+                        li No Artist found
+                
+            #albums
+                h2 Albums
+                ul
+                    each album in albums
+                        li= album.name
+                        a(href=`${album.external_urls.spotify}`)
+                            img(src=`${album.images[0].url}`, alt="Artist Image")
+                    else
+                        li No Album found
+
+            #tracks
+                h2 Tracks
+                ul
+                    each track in tracks
+                        li= track.name
+                    else
+                        li No Track found
