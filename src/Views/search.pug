@@ -1,0 +1,25 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Search Spotify
+
+    body
+        h1 Search Spotify
+        form(action="/search", method="POST")
+            label(for="searchTerm")= "Search Term"
+            br
+            input(type="text", id="searchTerm", name="searchTerm", value=`${searchTerm}`)
+
+        div(id="artists")
+            h2 Artists
+            ul
+                each artist in artists
+                    li= artist.name
+                    a(href=`${artist.external_urls.spotify}`)
+                        img(src=`${artist.images[0].url}`, alt="Artist Image")
+                else
+                    li No Artist found
+            
+            h2 Albums
