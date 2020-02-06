@@ -1,5 +1,5 @@
 const axios = require('axios');
-const config = require('../../config/config.js');
+const config = require('../../config/config.local.js');
 
 const FetchToken = async () =>
 {
