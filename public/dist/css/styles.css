@@ -1,0 +1,53 @@
+img {
+    max-width: 100%;
+}
+
+/*
+ * HEADER
+ */
+#header {
+    width: 100vw;
+    height: 4rem;
+    line-height: 4rem;
+    position: fixed;
+    background: #1db954;
+}
+#header #branding {
+    display: block;
+    width: max-content;
+    width: -moz-max-content;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 1.25rem;
+}
+#headerSpacer {
+    position: relative;
+    width: 100%;
+    height: 4rem;
+}
+
+/*
+ * CONTENT
+ */
+#content {
+    padding: 1rem;
+}
+
+/*
+ * SEARCH
+ */
+#search {
+    display: flex;
+    flex-flow: row nowrap;
+}
+#search #searchTerm,
+#search #submitSearch {
+    height: 2rem;
+}
+#search #searchTerm {
+    flex-grow: 11;
+}
+#search #submitSearch {
+    flex-grow: 1;
+}
