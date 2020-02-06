@@ -1,13 +1,22 @@
-const FetchAlbum = require('../Service/FetchAlbum.js');
+const SearchSpotify = require('../Service/SearchSpotify.js');
 
-const SearchAlbumsMiddleware = (req, res, next) => 
+const SearchMiddleware = (req, res, next) => 
 {
-    const searchTerm = req.body;
-    console.log(searchTerm);
+    const searchTerm = req.body.searchTerm;
+    let result;
 
-    //console.log(FetchAlbum(albumId));
+    SearchSpotify.search(searchTerm)
+        .then((data) => {
+            result = data;
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+
+    console.log(result);
+    req.searchResult = result;
 
     next();
 };
 
-module.exports = SearchAlbumsMiddleware;
+module.exports = SearchMiddleware;
