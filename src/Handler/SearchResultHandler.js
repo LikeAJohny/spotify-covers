@@ -1,8 +1,9 @@
 const path = require('path');
 
-const AlbumCoverHandler = (req, res) =>
+const SearchResultHandler = (req, res) =>
 {
+    console.log(req.searchResult);
     return res.sendFile(path.join(__dirname + '../../../public/search.html'));
 };
 
-module.exports = AlbumCoverHandler;
+module.exports = SearchResultHandler;

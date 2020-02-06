@@ -4,7 +4,7 @@ const BodyParserMiddleware = require('body-parser');
 const NotFoundHandler = require('../src/Handler/NotFoundHandler.js');
 const HomePageHandler = require('../src/Handler/HomePageHandler.js');
 const AuthMiddleware = require('../src/Middleware/AuthMiddleware.js');
-const AlbumCoverHandler = require('../src/Handler/AlbumCoverHandler.js');
+const SearchResultHandler = require('../src/Handler/SearchResultHandler.js');
 const SearchMiddleware = require('../src/Middleware/SearchMiddleware.js');
 
 // Authentication
@@ -21,8 +21,8 @@ router.use(BodyParserMiddleware.json());
 router.get('/', HomePageHandler);
 
 // General Spotify Search
-router.get('/search', AlbumCoverHandler);
-router.post('/search', [SearchMiddleware, AlbumCoverHandler]);
+router.get('/search', SearchResultHandler);
+router.post('/search', [SearchMiddleware, SearchResultHandler]);
 
 router.use(NotFoundHandler);
 
