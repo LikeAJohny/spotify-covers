@@ -3,7 +3,7 @@ const app = express();
 const config = require('./config/config.local.js');
 const routes = require('./config/routes.js');
 
-app.set('view engine', 'pub');
+app.set('view engine', 'pug');
 app.use(config.staticFiles);
 app.use('/', routes);
 
