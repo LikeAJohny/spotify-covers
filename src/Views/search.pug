@@ -10,39 +10,57 @@ html(lang="en")
     body
         header#header
             #branding
-                span Search Spotify
+                a(href="/") Search Spotify
         #headerSpacer
 
         main#content
 
-            form#search(action="/search", method="POST")
+            form#search(action="/", method="POST")
                 input#searchTerm(type="text", name="searchTerm", value=`${searchTerm}`, placeholder="Artist or Album Name")
                 input#submitSearch(type="submit" value="Search")
 
-            h2 Artists
-            #artists
-                each artist in artists
-                    .artist
-                        span.artist__name= artist.name
-                        a(href=`${artist.external_urls.spotify}`)
+            if artists.length > 0 || albums.length > 0
+
+                h2 Artists
+                #artists
+                    each artist in artists
+                        .artist
+                            span.artist__name= artist.name
                             if artist.images.length > 0
-                                img(src=`${artist.images[0].url}`, alt="Artist Image")
+                                a(href=`${artist.images[0].url}`, target="_blank")
+                                    img(src=`${artist.images[0].url}`, alt="Artist Image")
                             else
                                 img(src="https://via.placeholder.com/640?text=No+Image", alt="Placeholder Image")
-                        a.artist__get-images(href="#") Get Images
-                else
-                    span No Artist found
-                
-            h2 Albums
-            #albums
-                each album in albums
-                    .album
-                        span.album__name= album.name
-                        a(href=`${album.external_urls.spotify}`)
+                            a.artist__spotify-link(href=`${artist.external_urls.spotify}`, target="_blank") Show On Spotify
+                    else
+                        span No Artist found
+                    
+                h2 Albums
+                #albums
+                    each album in albums
+                        .album
+                            span.album__name= album.name
                             if album.images.length > 0
-                                img(src=`${album.images[0].url}`, alt="Album Image")
+                                a(href=`${album.images[0].url}`, target="_blank")
+                                    img(src=`${album.images[0].url}`, alt="Album Image")
                             else
                                 img(src="https://via.placeholder.com/640?text=No+Image", alt="Placeholder Image")
-                        a.album__get-images(href="#") Get Images
-                else
-                    span No Album found
+                            a.album__spotify-link(href=`${album.external_urls.spotify}`, target="_blank") Show On Spotify
+                    else
+                        span No Album found
+
+            else
+                h2 Grab Images from Spotify!
+                h3 It's easy!
+                ol 
+                    li <b>Search</b> for an <b>Artist</b> or <b>Album</b>
+                    li <b>Look</b> through the result list until you find what you want
+                    li <b>Click</b> on the <b>big preview image</b> to request your image
+                    li <b>Right Click</b> on the Image and choose "Save Image As"
+                    li For a <b>new search</b> you can just change the search term or click on the header
+                h2 Have fun!
+                h3 FAQ
+                ol
+                    li I've searched but keep staying on this page right here?!
+                    ul
+                        li That only means that there is no search result given by Spotify!

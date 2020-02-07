@@ -16,11 +16,14 @@ h2 {
 #header {
     width: 100vw;
     height: 4rem;
+    box-sizing: border-box;
     line-height: 4rem;
     position: fixed;
     background: #1db954;
+    z-index: 10;
+    border-bottom: 1px solid #fff;
 }
-#header #branding {
+#header #branding a {
     display: block;
     width: max-content;
     width: -moz-max-content;
@@ -83,22 +86,27 @@ h2 {
     padding-bottom: 0;
 }
 #artists .artist .artist__name,
-#artists .artist .artist__get-images,
+#artists .artist .artist__spotify-link,
 #albums .album .album__name,
-#albums .album .album__get-images {
+#albums .album .album__spotify-link {
     display: block;
-    height: 2rem;
-    line-height: 2rem;
+    height: 3rem;
+    line-height: 3rem;
     text-align: center;
     font-size: 1rem;
     color: #fff;
     background: #1db954;
 }
+#artists .artist .artist__spotify-link,
+#albums .album .album__spotify-link {
+    background: #333;
+    text-decoration: underline;
+}
 #artists .artist .artist__name,
 #albums .album .album__name {
     border-radius: 0.25rem 0.25rem 0 0;
 }
-#artists .artist .artist__get-images,
-#albums .album .album__get-images {
+#artists .artist .artist__spotify-link,
+#albums .album .album__spotify-link {
     border-radius: 0 0 0.25rem 0.2rem;
 }
