@@ -1,6 +1,14 @@
 img {
     max-width: 100%;
 }
+h2 {
+    margin: 1rem 0;
+    text-align: center;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    background: #000;
+    color: #fff;
+}
 
 /*
  * HEADER
@@ -43,11 +51,54 @@ img {
 }
 #search #searchTerm,
 #search #submitSearch {
-    height: 2rem;
+    height: 3rem;
+    font-size: 1rem;
 }
 #search #searchTerm {
-    flex-grow: 11;
+    flex-grow: 10;
 }
 #search #submitSearch {
-    flex-grow: 1;
+    flex-grow: 2;
+    background: #000;
+    color: #fff;
+    border: none;
+}
+
+/*
+ * ARTISTS & ALBUMS LIST
+ */
+#artists,
+#albums {
+    display: flex;
+    flex-flow: row wrap;
+}
+#artists .artist,
+#albums, .album {
+    box-sizing: border-box;
+    flex-basis: 100%;
+    padding-bottom: 1rem;
+}
+#artists .artist:last-of-type,
+#albums .album:last-of-type {
+    padding-bottom: 0;
+}
+#artists .artist .artist__name,
+#artists .artist .artist__get-images,
+#albums .album .album__name,
+#albums .album .album__get-images {
+    display: block;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #fff;
+    background: #1db954;
+}
+#artists .artist .artist__name,
+#albums .album .album__name {
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+#artists .artist .artist__get-images,
+#albums .album .album__get-images {
+    border-radius: 0 0 0.25rem 0.2rem;
 }

@@ -16,39 +16,33 @@ html(lang="en")
         main#content
 
             form#search(action="/search", method="POST")
-                input#searchTerm(type="text", name="searchTerm", value=`${searchTerm}`)
+                input#searchTerm(type="text", name="searchTerm", value=`${searchTerm}`, placeholder="Artist or Album Name")
                 input#submitSearch(type="submit" value="Search")
 
+            h2 Artists
             #artists
-                h2 Artists
-                ul
-                    each artist in artists
-                        li= artist.name
-                            a(href=`${artist.external_urls.spotify}`)
-                                if artist.images.length >0
-                                    img(src=`${artist.images[0].url}`, alt="Artist Image")
-                                else
-                                    span No Image
-                    else
-                        li No Artist found
+                each artist in artists
+                    .artist
+                        span.artist__name= artist.name
+                        a(href=`${artist.external_urls.spotify}`)
+                            if artist.images.length > 0
+                                img(src=`${artist.images[0].url}`, alt="Artist Image")
+                            else
+                                img(src="https://via.placeholder.com/640?text=No+Image", alt="Placeholder Image")
+                        a.artist__get-images(href="#") Get Images
+                else
+                    span No Artist found
                 
+            h2 Albums
             #albums
-                h2 Albums
-                ul
-                    each album in albums
-                        li= album.name
+                each album in albums
+                    .album
+                        span.album__name= album.name
                         a(href=`${album.external_urls.spotify}`)
                             if album.images.length > 0
-                                img(src=`${album.images[0].url}`, alt="Artist Image")
+                                img(src=`${album.images[0].url}`, alt="Album Image")
                             else
-                                span No Image
-                    else
-                        li No Album found
-
-            #tracks
-                h2 Tracks
-                ul
-                    each track in tracks
-                        li= track.name
-                    else
-                        li No Track found
+                                img(src="https://via.placeholder.com/640?text=No+Image", alt="Placeholder Image")
+                        a.album__get-images(href="#") Get Images
+                else
+                    span No Album found
