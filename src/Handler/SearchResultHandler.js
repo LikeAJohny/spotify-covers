@@ -10,7 +10,6 @@ const SearchResultHandler = (req, res) =>
             searchTerm : searchTerm,
             artists: typeof req.searchResult === 'undefined' ? {}: req.searchResult.artists.items,
             albums: typeof req.searchResult === 'undefined' ? {}: req.searchResult.albums.items,
-            tracks: typeof req.searchResult === 'undefined' ? {}: req.searchResult.tracks.items,
         }
     );
 };

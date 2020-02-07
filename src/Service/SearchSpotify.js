@@ -6,7 +6,7 @@ const search = async (searchTerm) => {
         return await axios(
             {
                 method: 'GET',
-                url: `https://api.spotify.com/v1/search?q=${searchTerm}&type=artist,album,track&market=DE`,
+                url: `https://api.spotify.com/v1/search?q=${searchTerm}&type=artist,album&market=DE`,
                 headers: {
                     'Authorization': 'Bearer ' + token.accessToken,
                     'Content-Type': 'application/json',
