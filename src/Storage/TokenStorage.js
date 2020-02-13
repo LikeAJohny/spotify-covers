@@ -31,6 +31,4 @@ module.exports = { write, read, isAlive };
 const onWrite = (error) =>
 {
     if (error) throw error;
-
-    console.log('Saved');
 };
