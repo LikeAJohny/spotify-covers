@@ -2,12 +2,12 @@ const express = require('express');
 const path = require('path');
 
 module.exports = {
-    staticFiles: express.static(''),
+    staticFiles: express.static(path.join(__dirname, '../public')),
     auth: {
-        clientId: '',
-        clientSecret: '',
-        authUri: '',
-        grantType: '',
-        tokenStore: '',
+        clientId: '<CLIENT_ID_SPOTIFY_APP>',
+        clientSecret: '<CLIENT_SECRET_SPOTIFY_APP>',
+        authUri: 'https://accounts.spotify.com/api/token',
+        grantType: 'client_credentials',
+        tokenStore: path.join(__dirname, '../data/token.json'),
     }
 };
